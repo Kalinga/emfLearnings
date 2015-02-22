@@ -62,6 +62,8 @@ public class PlayerItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDateOfBirthPropertyDescriptor(object);
+			addHeightPropertyDescriptor(object);
+			addIsProfessionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +113,50 @@ public class PlayerItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Height feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Player_height_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Player_height_feature", "_UI_Player_type"),
+				 BowlingPackage.Literals.PLAYER__HEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Professional feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsProfessionalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Player_isProfessional_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Player_isProfessional_feature", "_UI_Player_type"),
+				 BowlingPackage.Literals.PLAYER__IS_PROFESSIONAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Player.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +196,8 @@ public class PlayerItemProvider
 		switch (notification.getFeatureID(Player.class)) {
 			case BowlingPackage.PLAYER__NAME:
 			case BowlingPackage.PLAYER__DATE_OF_BIRTH:
+			case BowlingPackage.PLAYER__HEIGHT:
+			case BowlingPackage.PLAYER__IS_PROFESSIONAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

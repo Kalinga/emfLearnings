@@ -86,13 +86,31 @@ public interface BowlingPackage extends EPackage {
 	int PLAYER__DATE_OF_BIRTH = 1;
 
 	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__HEIGHT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Is Professional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__IS_PROFESSIONAL = 3;
+
+	/**
 	 * The number of structural features of the '<em>Player</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_FEATURE_COUNT = 2;
+	int PLAYER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Player</em>' class.
@@ -262,13 +280,22 @@ public interface BowlingPackage extends EPackage {
 	int GAME__PLAYER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Frames</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME__FRAMES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_FEATURE_COUNT = 2;
+	int GAME_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Game</em>' class.
@@ -321,6 +348,28 @@ public interface BowlingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlayer_DateOfBirth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bowling.Player#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see bowling.Player#getHeight()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EAttribute getPlayer_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bowling.Player#isIsProfessional <em>Is Professional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Professional</em>'.
+	 * @see bowling.Player#isIsProfessional()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EAttribute getPlayer_IsProfessional();
 
 	/**
 	 * Returns the meta object for class '{@link bowling.League <em>League</em>}'.
@@ -440,6 +489,17 @@ public interface BowlingPackage extends EPackage {
 	EReference getGame_Player();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link bowling.Game#getFrames <em>Frames</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Frames</em>'.
+	 * @see bowling.Game#getFrames()
+	 * @see #getGame()
+	 * @generated
+	 */
+	EAttribute getGame_Frames();
+
+	/**
 	 * Returns the meta object for enum '{@link bowling.TournamentType <em>Tournament Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -497,6 +557,22 @@ public interface BowlingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLAYER__DATE_OF_BIRTH = eINSTANCE.getPlayer_DateOfBirth();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER__HEIGHT = eINSTANCE.getPlayer_Height();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Professional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER__IS_PROFESSIONAL = eINSTANCE.getPlayer_IsProfessional();
 
 		/**
 		 * The meta object literal for the '{@link bowling.impl.LeagueImpl <em>League</em>}' class.
@@ -593,6 +669,14 @@ public interface BowlingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GAME__PLAYER = eINSTANCE.getGame_Player();
+
+		/**
+		 * The meta object literal for the '<em><b>Frames</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAME__FRAMES = eINSTANCE.getGame_Frames();
 
 		/**
 		 * The meta object literal for the '{@link bowling.TournamentType <em>Tournament Type</em>}' enum.

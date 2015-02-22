@@ -36,7 +36,7 @@ public interface Matchup extends EObject {
 	 * @return the value of the '<em>Games</em>' containment reference list.
 	 * @see bowling.BowlingPackage#getMatchup_Games()
 	 * @see bowling.Game#getMatchup
-	 * @model opposite="matchup" containment="true" upper="2"
+	 * @model opposite="matchup" containment="true" lower="2" upper="2"
 	 * @generated
 	 */
 	EList<Game> getGames();

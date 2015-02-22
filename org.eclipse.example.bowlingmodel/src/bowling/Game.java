@@ -2,6 +2,7 @@
  */
 package bowling;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link bowling.Game#getMatchup <em>Matchup</em>}</li>
  *   <li>{@link bowling.Game#getPlayer <em>Player</em>}</li>
+ *   <li>{@link bowling.Game#getFrames <em>Frames</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,7 +37,7 @@ public interface Game extends EObject {
 	 * @see #setMatchup(Matchup)
 	 * @see bowling.BowlingPackage#getGame_Matchup()
 	 * @see bowling.Matchup#getGames
-	 * @model opposite="games" transient="false"
+	 * @model opposite="games" required="true" transient="false"
 	 * @generated
 	 */
 	Matchup getMatchup();
@@ -75,5 +77,21 @@ public interface Game extends EObject {
 	 * @generated
 	 */
 	void setPlayer(Player value);
+
+	/**
+	 * Returns the value of the '<em><b>Frames</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Integer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Frames</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Frames</em>' attribute list.
+	 * @see bowling.BowlingPackage#getGame_Frames()
+	 * @model upper="10"
+	 * @generated
+	 */
+	EList<Integer> getFrames();
 
 } // Game
