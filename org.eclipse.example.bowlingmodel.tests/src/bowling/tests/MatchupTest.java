@@ -2,11 +2,18 @@
  */
 package bowling.tests;
 
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import bowling.BowlingFactory;
+import bowling.BowlingPackage;
+import bowling.Game;
+import bowling.League;
 import bowling.Matchup;
-
+import bowling.Player;
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -86,4 +93,46 @@ public class MatchupTest extends TestCase {
 		setFixture(null);
 	}
 
+	public void testMatchupGameRef() {
+		   Matchup matchup = BowlingFactory.eINSTANCE.createMatchup();
+		   Game game = BowlingFactory.eINSTANCE.createGame();
+		   matchup.getGames().add(game);
+		   assertEquals(game.getMatchup(), matchup);
+	}
+	
+	public void testReflection() {
+		   BowlingFactory factoryInstance = BowlingFactory.eINSTANCE;
+		   EObject newPlayer = factoryInstance.createPlayer();
+		   newPlayer.eSet(BowlingPackage.eINSTANCE.getPlayer_Name(), "Kalinga" );
+		   Player player = (Player)newPlayer;
+		   assertEquals("Kalinga", player.getName());
+	}
+	
+	public void testReflectiveInformation() {
+		   League league = BowlingFactory.eINSTANCE.createLeague();
+		   assertTrue(league.eClass().getEAllReferences().get(0).isMany());
+		   assertTrue(BowlingPackage.eINSTANCE.getLeague_Players().isMany());
+		}
+	
+	public void testValidation() {
+		   Matchup matchup = BowlingFactory.eINSTANCE.createMatchup();
+		   matchup.getGames().add(BowlingFactory.eINSTANCE.createGame());
+		   Diagnostic validate = Diagnostician.INSTANCE.validate(matchup);
+		   assertEquals(Diagnostic.ERROR, validate.getSeverity());
+		   
+		   matchup.getGames().add(BowlingFactory.eINSTANCE.createGame());
+		   validate = Diagnostician.INSTANCE.validate(matchup);
+		   assertEquals(Diagnostic.OK, validate.getSeverity());
+		}
+
+	public void testCopy() {
+		Player player = BowlingFactory.eINSTANCE.createPlayer();
+		player.setName("kalinga");
+		Player newPlayer = EcoreUtil.copy(player);
+		assertNotSame(player, newPlayer);
+		assertEquals(player.getName(), newPlayer.getName());
+	}
+	
 } //MatchupTest
+
+
